@@ -1,0 +1,50 @@
+{
+  "updatedOn": "2026-07-02",
+  "items": [
+    {
+      "id": "r-001",
+      "title": "Claude / ChatGPT projects as a PM context hub",
+      "url": "https://claude.ai",
+      "tag": "try-now",
+      "why": "Persistent project context means you stop re-explaining your product in every chat — set it up once, every draft gets sharper.",
+      "contexts": ["prd", "research"],
+      "addedOn": "2026-07-02"
+    },
+    {
+      "id": "r-002",
+      "title": "v0 / Lovable — working prototypes from a PRD",
+      "url": "https://v0.dev",
+      "tag": "try-now",
+      "why": "Paste your requirements, get a clickable UI in minutes. Changes the conversation with design and engineering from abstract to concrete.",
+      "contexts": ["prd"],
+      "addedOn": "2026-07-02"
+    },
+    {
+      "id": "r-003",
+      "title": "Granola — AI meeting notes without a bot",
+      "url": "https://granola.ai",
+      "tag": "be-aware",
+      "why": "The note-taker strong PM teams have quietly standardized on. If you're still writing meeting notes by hand, this is an hour a week back.",
+      "contexts": ["radar"],
+      "addedOn": "2026-07-02"
+    },
+    {
+      "id": "r-004",
+      "title": "Deep-research modes (Claude, ChatGPT, Gemini)",
+      "url": "https://claude.ai",
+      "tag": "try-now",
+      "why": "Multi-source, cited market research in one prompt. Doesn't replace your judgment — replaces two days of tab-hopping.",
+      "contexts": ["research"],
+      "addedOn": "2026-07-02"
+    },
+    {
+      "id": "r-005",
+      "title": "MCP (Model Context Protocol) — what it means for PMs",
+      "url": "https://modelcontextprotocol.io",
+      "tag": "watch",
+      "why": "The standard connecting AI assistants to your tools (Jira, Notion, analytics). Worth understanding before your team asks you to spec against it.",
+      "contexts": ["radar"],
+      "addedOn": "2026-07-02"
+    }
+  ]
+}

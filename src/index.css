@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* ---- Design tokens ---------------------------------------------------------
+   Calm, editorial, confident. The tool is a peer: quiet surfaces, strong
+   type hierarchy, one accent. No gradients, no noise. */
+
+@theme {
+  --color-ink: #16181d; /* primary text */
+  --color-ink-soft: #5c6370; /* secondary text */
+  --color-ink-faint: #9aa1ad; /* tertiary / placeholders */
+  --color-paper: #fafaf8; /* app background */
+  --color-surface: #ffffff; /* cards */
+  --color-line: #e6e6e2; /* borders */
+  --color-accent: #2f5aff; /* single accent — actions, active nav */
+  --color-accent-soft: #eef1ff;
+  --color-good: #1a7f4e;
+  --color-warn: #b26a00;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+}

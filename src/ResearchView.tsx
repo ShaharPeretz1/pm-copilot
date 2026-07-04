@@ -6,6 +6,8 @@ import type {
   Workspace,
 } from "./types";
 import { uid } from "./types";
+import { AiAction } from "./ai";
+import RadarStrip from "./RadarStrip";
 
 // ---------------------------------------------------------------------------
 // Research — competitor teardowns with evidence discipline. Claims carry
@@ -192,13 +194,7 @@ function Editor({
           >
             {copied === "md" ? "Copied" : "Copy brief"}
           </button>
-          <button
-            onClick={() => copy(researchPlanPrompt(project), "plan")}
-            className="px-3 py-1.5 rounded-md bg-accent text-white font-medium hover:opacity-90"
-            title="Copies a research-plan prompt — paste into Claude/ChatGPT"
-          >
-            {copied === "plan" ? "Copied — paste into your AI chat" : "Plan the research"}
-          </button>
+          <AiAction label="Plan the research" prompt={() => researchPlanPrompt(project)} />
         </div>
       </div>
 
@@ -228,6 +224,7 @@ function Editor({
       >
         + Add competitor
       </button>
+      <RadarStrip context="research" />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { emptyWorkspace } from "./types";
 import PrdView from "./PrdView";
 import PrioritizeView from "./PrioritizeView";
 import ResearchView from "./ResearchView";
+import { AiKeyContext, KeyControl } from "./ai";
 
 // ---------------------------------------------------------------------------
 // App shell — navigation, workspace state, JSON export/import, Radar landing.
@@ -20,6 +21,7 @@ const NAV: { id: SectionId; label: string; blurb: string }[] = [
 export default function App() {
   const [section, setSection] = useState<SectionId>("radar");
   const [workspace, setWorkspace] = useState<Workspace>(emptyWorkspace());
+  const [apiKey, setApiKey] = useState("");
   const fileInput = useRef<HTMLInputElement>(null);
 
   const exportWorkspace = () => {
@@ -42,6 +44,7 @@ export default function App() {
   };
 
   return (
+    <AiKeyContext.Provider value={{ apiKey, setApiKey }}>
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="border-b border-line bg-surface">
@@ -53,6 +56,7 @@ export default function App() {
             </span>
           </div>
           <div className="flex items-center gap-2 text-sm">
+            <KeyControl />
             <button
               onClick={() => fileInput.current?.click()}
               className="px-3 py-1.5 rounded-md border border-line hover:border-ink-faint text-ink-soft"
@@ -119,6 +123,7 @@ export default function App() {
         </div>
       </footer>
     </div>
+    </AiKeyContext.Provider>
   );
 }
 

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { PrdDoc, PrdSection, Workspace } from "./types";
 import { newPrd, prdToMarkdown, reviewPrompt } from "./prdTemplate";
+import { AiAction } from "./ai";
+import RadarStrip from "./RadarStrip";
 
 interface Props {
   workspace: Workspace;
@@ -118,13 +120,7 @@ function Editor({
           >
             {copied === "md" ? "Copied" : "Copy markdown"}
           </button>
-          <button
-            onClick={() => copy(reviewPrompt(doc), "review")}
-            className="px-3 py-1.5 rounded-md bg-accent text-white font-medium hover:opacity-90"
-            title="Copies a review prompt — paste into Claude/ChatGPT for a senior-level pass"
-          >
-            {copied === "review" ? "Copied — paste into your AI chat" : "Get a review"}
-          </button>
+          <AiAction label="Get a review" prompt={() => reviewPrompt(doc)} />
         </div>
       </div>
 
@@ -133,6 +129,7 @@ function Editor({
           <Section key={s.id} section={s} onChange={setSection} />
         ))}
       </div>
+      <RadarStrip context="prd" />
     </div>
   );
 }

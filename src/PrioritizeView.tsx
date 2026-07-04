@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { PrioritizationBoard, ScoredItem, ScoringModel, Workspace } from "./types";
 import { uid } from "./types";
+import { AiAction } from "./ai";
+import RadarStrip from "./RadarStrip";
 
 // ---------------------------------------------------------------------------
 // Prioritization — scores that survive questioning. Every number carries a
@@ -212,13 +214,7 @@ function Editor({
           >
             {copied === "md" ? "Copied" : "Copy table"}
           </button>
-          <button
-            onClick={() => copy(pressureTestPrompt(board), "test")}
-            className="px-3 py-1.5 rounded-md bg-accent text-white font-medium hover:opacity-90"
-            title="Copies a pressure-test prompt — paste into Claude/ChatGPT"
-          >
-            {copied === "test" ? "Copied — paste into your AI chat" : "Pressure-test"}
-          </button>
+          <AiAction label="Pressure-test" prompt={() => pressureTestPrompt(board)} />
         </div>
       </div>
 
@@ -301,6 +297,7 @@ function Editor({
           + Add item
         </button>
       </div>
+      <RadarStrip context="prioritize" />
     </div>
   );
 }

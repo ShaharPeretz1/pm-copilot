@@ -4,6 +4,9 @@ import { createContext, useContext, useState } from "react";
 // BYOK AI layer (ADR-0003). The key lives in React state only — never
 // persisted, never sent anywhere except the model provider itself.
 // Provider is inferred from the key prefix: sk-ant-… → Anthropic, else OpenAI.
+// Web search (ADR-0005/0007) works on both providers: Anthropic's Messages
+// API web_search_20250305 tool, or OpenAI's Responses API web_search tool
+// (gpt-4.1-mini — gpt-4o-mini doesn't support the tool).
 // ---------------------------------------------------------------------------
 
 export const AiKeyContext = createContext<{
@@ -41,6 +44,30 @@ export async function callAi(
     const text = (data.content ?? [])
       .filter((b: { type: string }) => b.type === "text")
       .map((b: { text: string }) => b.text)
+      .join("");
+    return text || "(empty response)";
+  }
+  if (webSearch) {
+    // Responses API: web_search is only supported on gpt-4.1-family models
+    // (not gpt-4o-mini), and makes search opt-in via the tools array —
+    // unlike Chat Completions' search-preview models, which always search.
+    const res = await fetch("https://api.openai.com/v1/responses", {
+      method: "POST",
+      headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` },
+      body: JSON.stringify({
+        model: "gpt-4.1-mini",
+        max_output_tokens: 4000,
+        tools: [{ type: "web_search", search_context_size: "medium" }],
+        input: prompt,
+      }),
+    });
+    if (!res.ok) throw new Error(`OpenAI API: ${res.status}`);
+    const data = await res.json();
+    const text = (data.output ?? [])
+      .filter((item: { type: string }) => item.type === "message")
+      .flatMap((item: { content: { type: string; text: string }[] }) => item.content)
+      .filter((c: { type: string }) => c.type === "output_text")
+      .map((c: { text: string }) => c.text)
       .join("");
     return text || "(empty response)";
   }
@@ -85,7 +112,7 @@ export function AiAction({
     setState("busy");
     setResult(null);
     try {
-      setResult(await callAi(apiKey, prompt(), webSearch && apiKey.startsWith("sk-ant-")));
+      setResult(await callAi(apiKey, prompt(), webSearch));
       setState("idle");
     } catch {
       setState("error");

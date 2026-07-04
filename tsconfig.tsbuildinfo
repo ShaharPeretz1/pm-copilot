@@ -1,1 +1,1 @@
-{"root":["./src/App.tsx","./src/PrdView.tsx","./src/PrioritizeView.tsx","./src/main.tsx","./src/prdTemplate.ts","./src/types.ts"],"version":"5.9.3"}
+{"root":["./src/app.tsx","./src/prdview.tsx","./src/prioritizeview.tsx","./src/radarstrip.tsx","./src/researchview.tsx","./src/ai.tsx","./src/main.tsx","./src/prdtemplate.ts","./src/types.ts"],"version":"5.9.3"}

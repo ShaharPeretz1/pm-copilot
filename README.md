@@ -6,7 +6,7 @@ PM Copilot is a free, no-signup tool for PMs at any level. It doesn't teach you 
 
 - **The Radar** — a hand-curated, weekly-updated feed of new AI tools, model capabilities, and what the PM community is adopting. Tagged `try now` / `be aware` / `watch`, with honest routing: when another tool does the job better, the Radar says so.
 - **PRD Workspace** — document structure with inline suggestions and alternative angles per section, plus an AI review pass that reads your draft like a sharp colleague.
-- **Market & Competitor Research** — structured teardown canvas with evidence discipline built in. With an Anthropic API key, "Run market research" performs live web-searched, source-cited research in-app; the same methodology ships as a reusable [Claude skill](skills/market-research/SKILL.md).
+- **Market & Competitor Research** — structured teardown canvas with evidence discipline built in. With an Anthropic or OpenAI key, "Run market research" performs live web-searched, source-cited research in-app; the same methodology ships as a reusable [Claude skill](skills/market-research/SKILL.md).
 - **Prioritization Workspace** — RICE/ICE scoring where the AI pressure-tests your numbers instead of accepting them.
 
 ## Principles
@@ -26,10 +26,14 @@ This project is built spec-first, with every significant decision recorded as an
 
 - [Playbook](docs/PLAYBOOK.md) — the product thinking behind every feature
 - [Product Spec](docs/SPEC.md)
+- [Roadmap](docs/roadmap.md) — what's shipped recently and what's next
 - [ADR-0001: Peer, not teacher](docs/adr/0001-peer-not-teacher.md)
 - [ADR-0002: Three workflows, everything else cut](docs/adr/0002-scope-three-workflows.md)
 - [ADR-0003: No backend, BYOK AI](docs/adr/0003-no-backend-byok.md)
 - [ADR-0004: The Radar as centerpiece](docs/adr/0004-radar-as-centerpiece.md)
+- [ADR-0005: Live search stays BYOK](docs/adr/0005-live-search-stays-byok.md)
+- [ADR-0006: Radar curation skill](docs/adr/0006-radar-curation-skill.md)
+- [ADR-0007: OpenAI search parity](docs/adr/0007-openai-search-parity.md)
 - [Competitive research](docs/research/competitive-review.md) — the market analysis this project's positioning is based on
 
 ## Try it
@@ -40,7 +44,10 @@ Run locally: `npm install && npm run dev`
 
 ## Status
 
-v1 shipped — built in one week, spec-first. See the [Playbook](docs/PLAYBOOK.md) for the product thinking, and the [spec](docs/SPEC.md) for how it was scoped.
+v1 shipped — built in one week, spec-first. Since v1: live, sourced market research via Anthropic
+web search, and Radar curation formalized as a repeatable weekly skill. See the
+[Playbook](docs/PLAYBOOK.md) for the product thinking, the [spec](docs/SPEC.md) for how v1 was
+scoped, and the [roadmap](docs/roadmap.md) for what's shipped since and what's next.
 
 ---
 

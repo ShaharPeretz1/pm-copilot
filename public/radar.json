@@ -1,50 +1,77 @@
 {
-  "updatedOn": "2026-07-02",
+  "updatedOn": "2026-07-04",
   "items": [
     {
-      "id": "r-001",
-      "title": "Claude / ChatGPT projects as a PM context hub",
-      "url": "https://claude.ai",
+      "id": "r-010",
+      "title": "Context libraries: many small files beat one big brief",
+      "url": "https://www.chatprd.ai/how-i-ai/teresa-torres-claude-code-obsdian-task-management",
       "tag": "try-now",
-      "why": "Persistent project context means you stop re-explaining your product in every chat — set it up once, every draft gets sharper.",
-      "contexts": ["prd", "research"],
-      "addedOn": "2026-07-02"
+      "why": "Teresa Torres's system: dozens of tiny, focused markdown context files with an index, loaded per-task — because too much irrelevant context makes AI worse. End each session with \"what did you learn today that we should document?\" and the library compounds.",
+      "contexts": ["prd", "research", "radar"],
+      "addedOn": "2026-07-04"
     },
     {
-      "id": "r-002",
-      "title": "v0 / Lovable — working prototypes from a PRD",
-      "url": "https://v0.dev",
+      "id": "r-011",
+      "title": "Claude Code isn't just for engineers",
+      "url": "https://www.lennysnewsletter.com/p/claude-code-for-product-managers",
       "tag": "try-now",
-      "why": "Paste your requirements, get a clickable UI in minutes. Changes the conversation with design and engineering from abstract to concrete.",
-      "contexts": ["prd"],
-      "addedOn": "2026-07-02"
+      "why": "Non-technical PMs are running research, writing, and personal task systems from the terminal with markdown files — no dashboards, no SaaS. The barrier is one install, and the leverage is agents that work your files directly.",
+      "contexts": ["radar", "research"],
+      "addedOn": "2026-07-04"
     },
     {
-      "id": "r-003",
-      "title": "Granola — AI meeting notes without a bot",
-      "url": "https://granola.ai",
+      "id": "r-012",
+      "title": "Evals are the new analytics — an AI-PM core skill",
+      "url": "https://www.news.aakashg.com/p/ai-evals",
       "tag": "be-aware",
-      "why": "The note-taker strong PM teams have quietly standardized on. If you're still writing meeting notes by hand, this is an hour a week back.",
-      "contexts": ["radar"],
-      "addedOn": "2026-07-02"
+      "why": "Aakash Gupta's line: you can't PM an AI product without evals, the same way you can't PM without analytics. If your product grows an AI feature this year, writing evals lands on you — few PMs are ready.",
+      "contexts": ["radar", "prd"],
+      "addedOn": "2026-07-04"
     },
     {
-      "id": "r-004",
-      "title": "Deep-research modes (Claude, ChatGPT, Gemini)",
-      "url": "https://claude.ai",
+      "id": "r-013",
+      "title": "Adversarial agent debates to stress-test a feature set",
+      "url": "https://www.lennysnewsletter.com/p/make-product-management-fun-again",
       "tag": "try-now",
-      "why": "Multi-source, cited market research in one prompt. Doesn't replace your judgment — replaces two days of tab-hopping.",
-      "contexts": ["research"],
-      "addedOn": "2026-07-02"
+      "why": "Instead of asking AI for one biased opinion: spin up a 'pro' and an 'against' agent and let them debate your idea for rounds — the surviving arguments define the minimum feature set. Cheap, fast, surprisingly sharp.",
+      "contexts": ["prd", "prioritize"],
+      "addedOn": "2026-07-04"
     },
     {
-      "id": "r-005",
-      "title": "MCP (Model Context Protocol) — what it means for PMs",
-      "url": "https://modelcontextprotocol.io",
+      "id": "r-014",
+      "title": "Tool-hopping pipelines: chain outputs, don't pick a winner",
+      "url": "https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage",
+      "tag": "be-aware",
+      "why": "Top PMs don't choose one AI tool — they pipe Perplexity research into a custom GPT for the PRD, into v0 for the prototype, into video gen for the demo. Each output is the next input. The skill is the pipeline, not the tool.",
+      "contexts": ["research", "prd"],
+      "addedOn": "2026-07-04"
+    },
+    {
+      "id": "r-015",
+      "title": "Manage PRDs like code: version control + background agents",
+      "url": "https://www.chatprd.ai/how-i-ai",
       "tag": "watch",
-      "why": "The standard connecting AI assistants to your tools (Jira, Notion, analytics). Worth understanding before your team asks you to spec against it.",
+      "why": "LaunchDarkly's product team keeps PRDs in git, reviews them like pull requests, and lets background agents keep docs and tickets in sync. Docs-as-code is crossing from engineering into product.",
+      "contexts": ["prd"],
+      "addedOn": "2026-07-04"
+    },
+    {
+      "id": "r-016",
+      "title": "Query your product data by talking to it (MCP)",
+      "url": "https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage",
+      "tag": "try-now",
+      "why": "PMs at top companies now query analytics conversationally through MCP connectors instead of waiting on dashboards or SQL help. If your data lives in a warehouse or Mixpanel-like tool, there's likely an MCP for it already.",
+      "contexts": ["radar", "prioritize"],
+      "addedOn": "2026-07-04"
+    },
+    {
+      "id": "r-017",
+      "title": "Promote agents like interns, not tools",
+      "url": "https://www.lennysnewsletter.com/p/make-product-management-fun-again-9f6",
+      "tag": "be-aware",
+      "why": "The emerging management pattern: give an agent a small task, review its output like an intern's, expand scope only after it earns trust. PMs who treat agents as one-shot tools plateau; those who 'promote' them compound.",
       "contexts": ["radar"],
-      "addedOn": "2026-07-02"
+      "addedOn": "2026-07-04"
     }
   ]
 }

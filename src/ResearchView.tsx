@@ -60,6 +60,28 @@ const projectToMarkdown = (p: ResearchProject): string => {
   );
 };
 
+// Methodology mirrors skills/market-research/SKILL.md — kept in sync by hand.
+const runResearchPrompt = (p: ResearchProject): string => `You are a sharp senior product colleague running competitive/market research using web search. Terse, specific, evidence-first.
+
+Research question: ${p.question || "(not defined — sharpen one from the competitors listed)"}
+Competitors to investigate: ${p.competitors.map((c) => c.name).filter(Boolean).join(", ") || "(discover the main players yourself)"}
+User instructions: ${p.instructions?.trim() || "(none)"}
+
+Operating rules:
+1. Restate the question as the decision it serves; sharpen it if vague.
+2. Every claim about companies, pricing, features, funding, or market size must cite a URL from actual search results. Unverifiable → write "unverified". Never fill gaps with plausible text.
+3. Prefer high-signal sources: pricing pages, changelogs, G2/Capterra reviews (strengths AND complaints), job posts, recent news. Prefer the last 12 months; date claims.
+4. Distinguish evidence a competitor is WINNING (growth, hiring, review velocity, pricing power) from evidence they merely exist.
+5. Run one disconfirmation pass: search for problems/limitations/alternatives of the leading candidate and report findings either way.
+
+Output, scannable in under 3 minutes:
+- Research question (as sharpened) + the decision it serves
+- Landscape summary (1 paragraph: how the market splits, where it's crowded/empty)
+- Competitor table: positioning / pricing / target user / strengths / gaps
+- Evidence list: claim → source URL → date
+- What would change this conclusion (disconfirming findings)
+- Open questions: what couldn't be verified and how the user could verify it`;
+
 const researchPlanPrompt = (p: ResearchProject): string => `You are a sharp senior product colleague helping plan competitive research. Be terse and specific.
 
 Research question: ${p.question || "(not yet defined — start by sharpening it)"}
@@ -195,6 +217,11 @@ function Editor({
             {copied === "md" ? "Copied" : "Copy brief"}
           </button>
           <AiAction label="Plan the research" prompt={() => researchPlanPrompt(project)} />
+          <AiAction
+            label="Run market research"
+            prompt={() => runResearchPrompt(project)}
+            webSearch
+          />
         </div>
       </div>
 
@@ -202,7 +229,13 @@ function Editor({
         value={project.question}
         onChange={(e) => update({ ...project, question: e.target.value })}
         placeholder="Research question — what decision does this research serve?"
-        className="w-full bg-transparent outline-none text-sm text-ink-soft border-b border-line focus:border-accent pb-2 mb-6"
+        className="w-full bg-transparent outline-none text-sm text-ink-soft border-b border-line focus:border-accent pb-2 mb-2"
+      />
+      <input
+        value={project.instructions ?? ""}
+        onChange={(e) => update({ ...project, instructions: e.target.value })}
+        placeholder="Instructions for AI research (optional) — geography, segment, what to emphasize…"
+        className="w-full bg-transparent outline-none text-xs text-ink-soft border-b border-line focus:border-accent pb-2 mb-6 placeholder:text-ink-faint"
       />
 
       <div className="space-y-4">

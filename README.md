@@ -6,7 +6,7 @@ PM Copilot is a free, no-signup tool for PMs at any level. It doesn't teach you 
 
 - **The Radar** — a hand-curated, weekly-updated feed of new AI tools, model capabilities, and what the PM community is adopting. Tagged `try now` / `be aware` / `watch`, with honest routing: when another tool does the job better, the Radar says so.
 - **PRD Workspace** — document structure with inline suggestions and alternative angles per section, plus an AI review pass that reads your draft like a sharp colleague.
-- **Market & Competitor Research** — structured teardown canvas with evidence discipline built in.
+- **Market & Competitor Research** — structured teardown canvas with evidence discipline built in. With an Anthropic API key, "Run market research" performs live web-searched, source-cited research in-app; the same methodology ships as a reusable [Claude skill](skills/market-research/SKILL.md).
 - **Prioritization Workspace** — RICE/ICE scoring where the AI pressure-tests your numbers instead of accepting them.
 
 ## Principles

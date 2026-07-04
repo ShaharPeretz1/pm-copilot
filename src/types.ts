@@ -46,6 +46,8 @@ export interface ResearchProject {
   title: string;
   updatedAt: string;
   question: string; // what are we trying to learn?
+  /** Free-form user instructions for AI-run research (focus, geography, segments…). */
+  instructions?: string;
   competitors: CompetitorTeardown[];
 }
 

@@ -13,7 +13,11 @@ export const AiKeyContext = createContext<{
 
 export const useAiKey = () => useContext(AiKeyContext);
 
-export async function callAi(apiKey: string, prompt: string): Promise<string> {
+export async function callAi(
+  apiKey: string,
+  prompt: string,
+  webSearch = false
+): Promise<string> {
   if (apiKey.startsWith("sk-ant-")) {
     const res = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
@@ -25,13 +29,20 @@ export async function callAi(apiKey: string, prompt: string): Promise<string> {
       },
       body: JSON.stringify({
         model: "claude-sonnet-4-5",
-        max_tokens: 1500,
+        max_tokens: webSearch ? 4000 : 1500,
+        ...(webSearch && {
+          tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 6 }],
+        }),
         messages: [{ role: "user", content: prompt }],
       }),
     });
     if (!res.ok) throw new Error(`Anthropic API: ${res.status}`);
     const data = await res.json();
-    return data.content?.[0]?.text ?? "(empty response)";
+    const text = (data.content ?? [])
+      .filter((b: { type: string }) => b.type === "text")
+      .map((b: { text: string }) => b.text)
+      .join("");
+    return text || "(empty response)";
   }
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -51,7 +62,15 @@ export async function callAi(apiKey: string, prompt: string): Promise<string> {
 // With a key: runs the prompt and renders the response inline.
 // Without: copies the crafted prompt for any chat. Same product, zero setup.
 
-export function AiAction({ label, prompt }: { label: string; prompt: () => string }) {
+export function AiAction({
+  label,
+  prompt,
+  webSearch = false,
+}: {
+  label: string;
+  prompt: () => string;
+  webSearch?: boolean;
+}) {
   const { apiKey } = useAiKey();
   const [state, setState] = useState<"idle" | "copied" | "busy" | "error">("idle");
   const [result, setResult] = useState<string | null>(null);
@@ -66,7 +85,7 @@ export function AiAction({ label, prompt }: { label: string; prompt: () => strin
     setState("busy");
     setResult(null);
     try {
-      setResult(await callAi(apiKey, prompt()));
+      setResult(await callAi(apiKey, prompt(), webSearch && apiKey.startsWith("sk-ant-")));
       setState("idle");
     } catch {
       setState("error");

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { RadarFeed, RadarItem, RadarTag, SectionId, Workspace } from "./types";
 import { emptyWorkspace } from "./types";
+import PrdView from "./PrdView";
 
 // ---------------------------------------------------------------------------
 // App shell — navigation, workspace state, JSON export/import, Radar landing.
@@ -93,7 +94,10 @@ export default function App() {
       {/* Body */}
       <main className="flex-1 mx-auto w-full max-w-5xl px-6 py-8">
         {section === "radar" && <RadarView />}
-        {section !== "radar" && <ComingSoon section={section} />}
+        {section === "prd" && <PrdView workspace={workspace} setWorkspace={setWorkspace} />}
+        {(section === "research" || section === "prioritize") && (
+          <ComingSoon section={section} />
+        )}
       </main>
 
       <footer className="border-t border-line">

@@ -3,6 +3,7 @@ import type { RadarFeed, RadarItem, RadarTag, SectionId, Workspace } from "./typ
 import { emptyWorkspace } from "./types";
 import PrdView from "./PrdView";
 import PrioritizeView from "./PrioritizeView";
+import ResearchView from "./ResearchView";
 
 // ---------------------------------------------------------------------------
 // App shell — navigation, workspace state, JSON export/import, Radar landing.
@@ -99,7 +100,9 @@ export default function App() {
         {section === "prioritize" && (
           <PrioritizeView workspace={workspace} setWorkspace={setWorkspace} />
         )}
-        {section === "research" && <ComingSoon section={section} />}
+        {section === "research" && (
+          <ResearchView workspace={workspace} setWorkspace={setWorkspace} />
+        )}
       </main>
 
       <footer className="border-t border-line">
@@ -180,17 +183,5 @@ function RadarCard({ item }: { item: RadarItem }) {
       </div>
       <p className="text-sm text-ink-soft">{item.why}</p>
     </li>
-  );
-}
-
-// ---- Placeholder for workflows landing Days 2–5 -----------------------------
-
-function ComingSoon({ section }: { section: SectionId }) {
-  const meta = NAV.find((n) => n.id === section)!;
-  return (
-    <div className="py-16 text-center">
-      <h1 className="text-2xl font-semibold tracking-tight mb-2">{meta.label}</h1>
-      <p className="text-sm text-ink-soft">{meta.blurb} — landing this week.</p>
-    </div>
   );
 }

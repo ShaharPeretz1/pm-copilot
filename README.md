@@ -24,6 +24,7 @@ Bring your own Claude/OpenAI API key (kept in memory only, sent only to the prov
 
 This project is built spec-first, with every significant decision recorded as an ADR written for non-technical readers:
 
+- [Playbook](docs/PLAYBOOK.md) — the product thinking behind every feature
 - [Product Spec](docs/SPEC.md)
 - [ADR-0001: Peer, not teacher](docs/adr/0001-peer-not-teacher.md)
 - [ADR-0002: Three workflows, everything else cut](docs/adr/0002-scope-three-workflows.md)
@@ -31,9 +32,15 @@ This project is built spec-first, with every significant decision recorded as an
 - [ADR-0004: The Radar as centerpiece](docs/adr/0004-radar-as-centerpiece.md)
 - [Competitive research](docs/research/competitive-review.md) — the market analysis this project's positioning is based on
 
+## Try it
+
+**Live app:** https://shaharperetz1.github.io/pm-copilot/ — no signup, nothing stored.
+
+Run locally: `npm install && npm run dev`
+
 ## Status
 
-🚧 v1 in active development. See the [spec](docs/SPEC.md) for the build plan.
+v1 shipped — built in one week, spec-first. See the [Playbook](docs/PLAYBOOK.md) for the product thinking, and the [spec](docs/SPEC.md) for how it was scoped.
 
 ---
 

@@ -1,6 +1,87 @@
 {
-  "updatedOn": "2026-07-06",
+  "updatedOn": "2026-08-01",
   "items": [
+    {
+      "id": "r-027",
+      "title": "A narrow single-purpose Claude Skill beats a general writing assistant",
+      "url": "https://github.com/petergyang/no-ai-slop",
+      "tag": "try-now",
+      "why": "Peter Yang open-sourced /no-ai-slop (July 22): one Claude Skill that strips 20+ AI-slop patterns while explaining each edit and keeping your voice — and it can trigger your own doc templates for strategy briefs and PRDs. The lesson for PMs isn't the skill, it's the shape: build tight, single-job skills that encode your standards instead of one catch-all prompt.",
+      "contexts": ["prd", "research", "radar"],
+      "addedOn": "2026-08-01"
+    },
+    {
+      "id": "r-028",
+      "title": "Computer-use agents now do your mobile QA and persona research hands-free",
+      "url": "https://www.lennysnewsletter.com/p/computer-and-browser-use-in-codex",
+      "tag": "try-now",
+      "why": "In Claire Vo's How I AI walkthrough, Codex's browser + computer use exhaustively QAs an onboarding flow on mobile and impersonates personas to surface friction — work PMs used to do by hand or wait on eng for. Computer use crossed from demo to daily driver this month; worth an hour pointing it at your own flow.",
+      "contexts": ["research", "prd", "radar"],
+      "addedOn": "2026-08-01"
+    },
+    {
+      "id": "r-029",
+      "title": "An agent that reads your week of Slack, Notion, and Gmail and ranks the signal",
+      "url": "https://www.chatprd.ai/how-i-ai/alex-liebermans-6-step-workflow-to-beat-ai-slop",
+      "tag": "be-aware",
+      "why": "Alex Lieberman's 'Content Machine' on How I AI leads with an Oracle that scans seven days of Slack, Notion, Gmail, and meeting notes and surfaces 15 ranked spikes daily; drafts then pass a six-persona 'Writer's Council' that scores and revises until it clears a bar. Both patterns — a standing signal-aggregator and a scored review loop — port straight to PM triage and doc review.",
+      "contexts": ["radar", "prd", "prioritize"],
+      "addedOn": "2026-08-01"
+    },
+    {
+      "id": "r-024",
+      "title": "An 'agent harness' is just code around an agent — and it beats open-ended prompting for repeat work",
+      "url": "https://www.chatprd.ai/how-i-ai/how-i-built-a-custom-ai-harness",
+      "tag": "be-aware",
+      "why": "Claire Vo strips the jargon: a harness is a few files of code that give an agent fixed tools, encoded permissions, and a consistent output — hers runs Sentry bug triage the same way every time. Her shift in thinking: general agents like Claude Code should orchestrate specialized harnesses, not do every job from an open chat box.",
+      "contexts": ["radar"],
+      "addedOn": "2026-07-20"
+    },
+    {
+      "id": "r-025",
+      "title": "ChatGPT Work: OpenAI's agent now ships finished docs, decks, and web apps",
+      "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work/",
+      "tag": "be-aware",
+      "why": "OpenAI merged Codex into ChatGPT (July 9): give it a goal and it works across your apps and files for hours, returning finished spreadsheets, decks, and web apps — rolling out to all plans. Anthropic moved Cowork to cloud and mobile the same week. Expect stakeholders to arrive with agent-built artifacts.",
+      "contexts": ["radar", "prd"],
+      "addedOn": "2026-07-20"
+    },
+    {
+      "id": "r-026",
+      "title": "Hybrid agent loops: cheap local models do the volume, frontier models do the judgment",
+      "url": "https://www.chatprd.ai/how-i-ai/alex-finns-local-ai-fleet-and-automated-software-factory",
+      "tag": "watch",
+      "why": "Alex Finn's 24/7 setup on How I AI: a local model scans code every 20 minutes and dumps findings to markdown; Claude Code reads the file daily and decides what's real. Running the frontier model continuously would cost thousands a month — matching model cost to task judgment is what makes always-on loops economically viable.",
+      "contexts": ["radar"],
+      "addedOn": "2026-07-20"
+    },
+    {
+      "id": "r-021",
+      "title": "Gusto shipped a product line in 10 weeks: no Jira, no docs, one Zoom room",
+      "url": "https://www.chatprd.ai/how-i-ai/how-gusto-built-a-new-product-line-in-10-weeks-with-claude-code-no-jira-and-no-docs",
+      "tag": "be-aware",
+      "why": "Gusto's CTO put five people, Claude Code, and a 24/7 Zoom room on a new product line and threw out the standard development process entirely. Strong teams are quietly testing how much PM scaffolding (tickets, specs, standups) agents make optional.",
+      "contexts": ["radar", "prd"],
+      "addedOn": "2026-07-13"
+    },
+    {
+      "id": "r-022",
+      "title": "Inside OpenAI: PMs run Slack-triggered automations and imagegen prototypes on Codex",
+      "url": "https://creatoreconomy.so/p/openai-pm-reveals-how-he-uses-codex-for-product-work-rohan-varma",
+      "tag": "try-now",
+      "why": "Peter Yang got OpenAI PM Rohan Varma to walk through his actual Codex product workflows — prototyping with image gen, kicking off automations from Slack. A rare look at how PMs inside a frontier lab do daily product work, and most of it is copyable.",
+      "contexts": ["radar", "prd"],
+      "addedOn": "2026-07-13"
+    },
+    {
+      "id": "r-023",
+      "title": "Build a personal model benchmark — stop vibe-checking new releases",
+      "url": "https://www.chatprd.ai/how-i-ai/sonnet-5-review-and-custom-benchmark",
+      "tag": "try-now",
+      "why": "Claire Vo built a repeatable 'How I AI Bench' in Claude Code that scores each new model on her real tasks (PRDs, prototypes) — and the leaderboard surprised her. With a major model dropping monthly, a personal bench answers 'should I switch?' in an hour instead of a week of vibes.",
+      "contexts": ["radar", "prioritize"],
+      "addedOn": "2026-07-13"
+    },
     {
       "id": "r-018",
       "title": "Goal-based agent loops: set the outcome, let the agent prompt itself",
@@ -38,57 +119,12 @@
       "addedOn": "2026-07-04"
     },
     {
-      "id": "r-011",
-      "title": "Claude Code isn't just for engineers",
-      "url": "https://www.lennysnewsletter.com/p/claude-code-for-product-managers",
-      "tag": "try-now",
-      "why": "Non-technical PMs are running research, writing, and personal task systems from the terminal with markdown files — no dashboards, no SaaS. The barrier is one install, and the leverage is agents that work your files directly.",
-      "contexts": ["radar", "research"],
-      "addedOn": "2026-07-04"
-    },
-    {
       "id": "r-012",
       "title": "Evals are the new analytics — an AI-PM core skill",
       "url": "https://www.news.aakashg.com/p/ai-evals",
       "tag": "be-aware",
       "why": "Aakash Gupta's line: you can't PM an AI product without evals, the same way you can't PM without analytics. If your product grows an AI feature this year, writing evals lands on you — few PMs are ready.",
       "contexts": ["radar", "prd"],
-      "addedOn": "2026-07-04"
-    },
-    {
-      "id": "r-013",
-      "title": "Adversarial agent debates to stress-test a feature set",
-      "url": "https://www.lennysnewsletter.com/p/make-product-management-fun-again",
-      "tag": "try-now",
-      "why": "Instead of asking AI for one biased opinion: spin up a 'pro' and an 'against' agent and let them debate your idea for rounds — the surviving arguments define the minimum feature set. Cheap, fast, surprisingly sharp.",
-      "contexts": ["prd", "prioritize"],
-      "addedOn": "2026-07-04"
-    },
-    {
-      "id": "r-014",
-      "title": "Tool-hopping pipelines: chain outputs, don't pick a winner",
-      "url": "https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage",
-      "tag": "be-aware",
-      "why": "Top PMs don't choose one AI tool — they pipe Perplexity research into a custom GPT for the PRD, into v0 for the prototype, into video gen for the demo. Each output is the next input. The skill is the pipeline, not the tool.",
-      "contexts": ["research", "prd"],
-      "addedOn": "2026-07-04"
-    },
-    {
-      "id": "r-015",
-      "title": "Manage PRDs like code: version control + background agents",
-      "url": "https://www.chatprd.ai/how-i-ai",
-      "tag": "watch",
-      "why": "LaunchDarkly's product team keeps PRDs in git, reviews them like pull requests, and lets background agents keep docs and tickets in sync. Docs-as-code is crossing from engineering into product.",
-      "contexts": ["prd"],
-      "addedOn": "2026-07-04"
-    },
-    {
-      "id": "r-016",
-      "title": "Query your product data by talking to it (MCP)",
-      "url": "https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage",
-      "tag": "try-now",
-      "why": "PMs at top companies now query analytics conversationally through MCP connectors instead of waiting on dashboards or SQL help. If your data lives in a warehouse or Mixpanel-like tool, there's likely an MCP for it already.",
-      "contexts": ["radar", "prioritize"],
       "addedOn": "2026-07-04"
     },
     {

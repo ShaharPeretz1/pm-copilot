@@ -1,6 +1,33 @@
 {
-  "updatedOn": "2026-08-03",
+  "updatedOn": "2026-08-04",
   "items": [
+    {
+      "id": "r-033",
+      "title": "Evals as the spec: how to write your first one before you have any data",
+      "url": "https://www.news.aakashg.com/p/how-to-build-your-first-eval",
+      "tag": "try-now",
+      "why": "Daniel McKinnon (ex-PM on Llama at Meta) gives the cold-start version — built from domain expertise before you have production data: state the problem in one sentence, find the easiest case the model handles and the one it can't, then binary-search ~100 cases between them, scored pass/fail on correctness, format, and scope. His sharper claim is that the eval *is* the spec, and that a 50% score isn't a fail — it's a map of which question types you can ship behind guardrails.",
+      "contexts": ["prd", "research", "radar"],
+      "addedOn": "2026-08-04"
+    },
+    {
+      "id": "r-034",
+      "title": "The new top model is best used asynchronously, not conversationally",
+      "url": "https://www.chatprd.ai/how-i-ai/my-surprising-verdict-on-claude-opus-5",
+      "tag": "be-aware",
+      "why": "Claire Vo benchmarked seven models — Opus 5, Sonnet 5, GPT-5.6 Sol, Terra, Fable, Opus 4a, Gemini 3.1 Pro — across PRDs, prototypes, wireframes, bug triage, agentic coding, and voice. Opus 5 (shipped July 24) placed first and won front-end design outright, but she found it verbose and hedging to talk to: her verdict is to point it at agentic, hands-off work and stay out of the chat window.",
+      "contexts": ["radar", "prd"],
+      "addedOn": "2026-08-04"
+    },
+    {
+      "id": "r-035",
+      "title": "PM interview loops now run live vibe coding — product sense and prototyping in one round",
+      "url": "https://www.news.aakashg.com/p/vibe-coding-interviews-for-pms-complete",
+      "tag": "be-aware",
+      "why": "Aakash Gupta collected candidate reports and hiring-manager interviews showing Google, Meta, Microsoft, Figma, Shopify, and Perplexity now compress product sense and live prototyping into a single round. What's scored isn't the code — it's whether you direct the AI or accept its first output, and whether you jump to execution before framing the problem.",
+      "contexts": ["radar"],
+      "addedOn": "2026-08-04"
+    },
     {
       "id": "r-030",
       "title": "The discovery authority's AI verdict: AI-moderated real interviews yes, synthetic users no",
@@ -92,15 +119,6 @@
       "addedOn": "2026-07-13"
     },
     {
-      "id": "r-022",
-      "title": "Inside OpenAI: PMs run Slack-triggered automations and imagegen prototypes on Codex",
-      "url": "https://creatoreconomy.so/p/openai-pm-reveals-how-he-uses-codex-for-product-work-rohan-varma",
-      "tag": "try-now",
-      "why": "Peter Yang got OpenAI PM Rohan Varma to walk through his actual Codex product workflows — prototyping with image gen, kicking off automations from Slack. A rare look at how PMs inside a frontier lab do daily product work, and most of it is copyable.",
-      "contexts": ["radar", "prd"],
-      "addedOn": "2026-07-13"
-    },
-    {
       "id": "r-023",
       "title": "Build a personal model benchmark — stop vibe-checking new releases",
       "url": "https://www.chatprd.ai/how-i-ai/sonnet-5-review-and-custom-benchmark",
@@ -110,30 +128,12 @@
       "addedOn": "2026-07-13"
     },
     {
-      "id": "r-018",
-      "title": "Goal-based agent loops: set the outcome, let the agent prompt itself",
-      "url": "https://www.chatprd.ai/how-i-ai/how-i-ai-designing-ai-agent-loops-in-claude-code-and-codex",
-      "tag": "try-now",
-      "why": "How I AI's walkthrough builds two autonomous loops — a scheduled PR-manager in Claude Code and a Codex automation that proposes new agent skills weekly. The shift: stop prompting steps, define a validated outcome and let the agent iterate until it's met.",
-      "contexts": ["radar"],
-      "addedOn": "2026-07-06"
-    },
-    {
       "id": "r-010",
       "title": "Context libraries: many small files beat one big brief",
       "url": "https://www.chatprd.ai/how-i-ai/teresa-torres-claude-code-obsdian-task-management",
       "tag": "try-now",
       "why": "Teresa Torres's system: dozens of tiny, focused markdown context files with an index, loaded per-task — because too much irrelevant context makes AI worse. End each session with \"what did you learn today that we should document?\" and the library compounds.",
       "contexts": ["prd", "research", "radar"],
-      "addedOn": "2026-07-04"
-    },
-    {
-      "id": "r-012",
-      "title": "Evals are the new analytics — an AI-PM core skill",
-      "url": "https://www.news.aakashg.com/p/ai-evals",
-      "tag": "be-aware",
-      "why": "Aakash Gupta's line: you can't PM an AI product without evals, the same way you can't PM without analytics. If your product grows an AI feature this year, writing evals lands on you — few PMs are ready.",
-      "contexts": ["radar", "prd"],
       "addedOn": "2026-07-04"
     }
   ]

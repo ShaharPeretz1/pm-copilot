@@ -5,14 +5,25 @@
 
 ## Now
 
-<!-- Fill in what you're actively working on next. Nothing captured yet as of this close-out —
-this file didn't exist before 2026-07-04, so "Now" is genuinely open. -->
--
+<!-- Actively in flight. -->
+- Nothing in flight. Pick the top of "Next".
 
 ## Next
 
 <!-- Queued, roughly prioritized. -->
--
+- **Push the curation backlog — the live Radar is a month stale.** Found 2026-08-04: three radar
+  commits (Jul 6, Aug 1, Aug 3) plus the persistence/examples work sat unpushed on local `main`,
+  so Pages was still serving the 8-item July 4 feed. The weekly curation ritual has no
+  "and deploy it" step, and nothing surfaces the gap — the feed's whole promise is freshness, so
+  a stale live feed is the one failure that costs credibility. Worth making curation end in a push,
+  and worth a staleness check (feed `updatedOn` older than ~10 days → visible note in the app).
+- **Smoke-test the OpenAI web-search path against a live `sk-` key.** Still only type-checked
+  (ADR-0007). The `/v1/responses` → `message` → `output_text` parse in `ai.tsx` is easy to get
+  subtly wrong; verify a "Run market research" brief renders with sources before any demo relies on it.
+- **README screenshot (visual).** The README now shows rendered sample output above the fold
+  ("See it before you click"), but no actual UI screenshot — worth one image so the *look* of the
+  tool lands, not just the artifacts. Needs a browser session to capture; do it next time the
+  Chrome extension is connected.
 
 ## Later / maybe
 
@@ -28,6 +39,18 @@ docs/PLAYBOOK.md "What was deliberately cut" — revisit only if the reasons in 
 ## Recently shipped
 
 <!-- Newest first. -->
+- **2026-07-05** — README "See it before you click": rendered sample output (RICE board + teardown
+  evidence) above the fold, generated from the built-in example so it matches real product output.
+  Carries the "oh, that's useful" without a click. (Visual UI screenshot still pending — see Next.)
+- **2026-07-05** — "Load an example" in every workspace. One click seeds a filled, credible artifact
+  (PRD, competitive teardown, RICE board) — all around one coherent scenario (adding AI meeting
+  summaries to a team-workspace product) so clicking through the nav tells one story. Kills the
+  blank-form first-3-minutes problem. Examples live in `src/examples.ts`.
+- **2026-07-05** — Work now persists. The workspace mirrors to `localStorage` (survives refresh /
+  tab-close) and AI outputs can be saved onto the PRD/research project — so the flagship
+  market-research brief no longer vanishes on modal close, and rides along in JSON export. Footer
+  copy flipped from warning to reassurance. Client-only, no infra, key still in-memory-only. See
+  [ADR-0008](adr/0008-local-persistence.md).
 - **2026-07-04** — OpenAI reaches web-search parity with Anthropic for market research, via the
   Responses API `web_search` tool (`gpt-4.1-mini`). Closes the asymmetry ADR-0005 flagged. See
   [ADR-0007](adr/0007-openai-search-parity.md). Not yet smoke-tested against a live OpenAI key.
